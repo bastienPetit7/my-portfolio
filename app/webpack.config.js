@@ -8,9 +8,9 @@ if (!Encore.isRuntimeEnvironmentConfigured()) {
 
 Encore
     // directory where compiled assets will be stored
-    .setOutputPath('public/build/')
+    .setOutputPath('public/build-front/')
     // public path used by the web server to access the output path
-    .setPublicPath('/build')
+    .setPublicPath('/build-front')
     // only needed for CDN's or subdirectory deploy
     //.setManifestKeyPrefix('build/')
 
@@ -62,10 +62,24 @@ Encore
         };
     }, {})
 
-    .enablePostCssLoader((options) => {
-        options.postcssOptions = {
-            config: './postcss.config.js',
-        }
+    // .enablePostCssLoader((options) => {
+    //     options.postcssOptions = {
+    //         config: './postcss.config.js',
+    //     }
+    // })
+
+    .copyFiles({
+        from: './assets/img',
+        to: '[path][name].[ext]',  // Ajout d'un hash pour le cache-busting
+        pattern: /\.(png|jpg|jpeg|gif|svg|webp)$/i,
+        context: './assets'
+    })
+
+    // Activer la compression des img
+    .configureImageRule({
+        type: 'asset',
+        maxSize: 8192, // Taille max pour inline en base64 (sinon fichier normal)
+        filename: 'img/[name].[ext]',
     })
 
     // uncomment if you use TypeScript
@@ -79,7 +93,7 @@ Encore
     //.enableIntegrityHashes(Encore.isProduction())
 
     // uncomment if you're having problems with a jQuery plugin
-    //.autoProvidejQuery()
+    .autoProvidejQuery()
 ;
 
 module.exports = Encore.getWebpackConfig();
