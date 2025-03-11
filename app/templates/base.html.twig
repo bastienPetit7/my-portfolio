@@ -4,8 +4,14 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="icon" type="image/png" href="{{ asset('assets/images/favicon.png') }}">
+    <link rel="icon" type="image/png" href="">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href=" {{ asset('vendor/swiper/dist/css/swiper.min.css') }} " />
+    <!-- Fancybox -->
+    <link rel="stylesheet" href=" {{ asset('vendor/fancybox/dist/jquery.fancybox.min.css') }} " />
+
+
 
     {% block meta %}
         {{ include('@SuluWebsite/Extension/seo.html.twig', {
@@ -26,9 +32,7 @@
         {% endblock %}
     </header>
 
-    <main>
-        {% block content %}{% endblock %}
-    </main>
+    {% block content %}{% endblock %}
 
     <footer>
         {% block footer %}
@@ -36,7 +40,33 @@
     </footer>
 
     {% block javascripts %}
-            {{ encore_entry_script_tags('app') }}
+        <script src="{{ asset('vendor/jquery/dist/jquery.min.js') }}"></script>
+        <script src="{{ asset('vendor/object-fit-images/dist/ofi.min.js') }}"></script>
+        <!-- Bootstrap -->
+        <script src="{{ asset('vendor/bootstrap/dist/js/bootstrap.min.js') }}"></script>
+        <!-- ImagesLoaded -->
+        <script src="{{ asset( 'vendor/imagesloaded/imagesloaded.pkgd.min.js') }}"></script>
+        <!-- Swiper -->
+        <script src="{{ asset('vendor/swiper/dist/js/swiper.min.js') }}"></script>
+        <!-- Animejs -->
+        <script src="{{ asset( 'vendor/animejs/lib/anime.min.js') }}"></script>
+        <!-- Rellax -->
+        <script src="{{ asset('vendor/rellax/rellax.min.js') }}"></script>
+        <!-- Countdown -->
+        <script src="{{ asset( 'vendor/jquery-countdown/dist/jquery.countdown.min.js') }}"></script>
+        <!-- Moment.js -->
+        <script src="{{ asset('vendor/moment/min/moment.min.js') }}"></script>
+        <script src="{{ asset( 'vendor/moment-timezone/builds/moment-timezone-with-data.min.js') }}"></script>
+        <!-- Isotope -->
+        <script src="{{ asset('vendor/isotope-layout/dist/isotope.pkgd.min.js') }}"></script>
+        <script src="{{ asset( 'vendor/isotope-packery/packery-mode.pkgd.min.js') }}"></script>
+        <!-- Jarallax -->
+        <script src="{{ asset('vendor/jarallax/dist/jarallax.min.js') }}"></script>
+        <script src="{{ asset( 'vendor/jarallax/dist/jarallax-video.min.js') }}"></script>
+        <!-- Fancybox -->
+
+        {{ encore_entry_script_tags('app') }}
+
     {% endblock %}
 </body>
 </html>
