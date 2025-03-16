@@ -10,6 +10,8 @@
     <localizations>
         <!-- See: http://docs.sulu.io/en/latest/book/localization.html how to add new localizations -->
         <localization language="fr" default="true"/>
+        <localization language="en"/>
+        <localization language="es"/>
     </localizations>
 
     <default-templates>
@@ -48,12 +50,16 @@
             <environments>
                 <environment type="prod">
                     <urls>
-                        <url language="fr">{host}</url>
+                        <url language="fr">{host}/{localization}</url>
+                        <url language="en">{host}/{localization}</url>
+                        <url language="es">{host}/{localization}</url>
                     </urls>
                 </environment>
                 <environment type="stage">
                     <urls>
-                        <url language="fr">{host}</url>
+                        <url language="fr">{host}/{localization}</url>
+                        <url language="en">{host}/{localization}</url>
+                        <url language="es">{host}/{localization}</url>
                     </urls>
                 </environment>
                 <environment type="test">
@@ -63,7 +69,9 @@
                 </environment>
                 <environment type="dev">
                     <urls>
-                        <url language="fr">{host}</url>
+                        <url language="fr">{host}/{localization}</url>
+                        <url language="en">{host}/{localization}</url>
+                        <url language="es">{host}/{localization}</url>
                     </urls>
                 </environment>
             </environments>

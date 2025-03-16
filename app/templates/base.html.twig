@@ -11,8 +11,6 @@
     <!-- Fancybox -->
     <link rel="stylesheet" href=" {{ asset('vendor/fancybox/dist/jquery.fancybox.min.css') }} " />
 
-
-
     {% block meta %}
         {{ include('@SuluWebsite/Extension/seo.html.twig', {
             seo: extension.seo|default([]),
@@ -27,17 +25,26 @@
 
 </head>
 <body>
-    <header>
-        {% block header %}
-        {% endblock %}
-    </header>
+{% for localization in localizations %}
+    <a href="{{ localization.url }}" title="{{ localization.locale }}">
+        {{ localization.locale|upper }}
+    </a>
+{% endfor %}
+
+    {% block header %}
+        {{ component('header', {
+            localizations:localizations
+        }) }}
+    {% endblock %}
+
 
     {% block content %}{% endblock %}
 
-    <footer>
-        {% block footer %}
-        {% endblock %}
-    </footer>
+
+    {% block footer %}
+        {{ component('footer') }}
+    {% endblock %}
+
 
     {% block javascripts %}
         <script src="{{ asset('vendor/jquery/dist/jquery.min.js') }}"></script>
