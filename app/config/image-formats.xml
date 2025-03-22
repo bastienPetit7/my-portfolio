@@ -15,6 +15,33 @@
         <scale x="300"/>
     </format>
     -->
+    <format key="360x">
+        <meta>
+            <title lang="fr">Image d'aperçu article</title>
+        </meta>
+
+        <scale x="360" y="235" />
+        <options>
+            <option name="webp_quality">80</option>
+        </options>
+    </format>
+
+    <format key="780x">
+        <meta>
+            <title lang="fr">Image article</title>
+        </meta>
+
+        <scale x="780" />
+
+    </format>
+
+    <format key="800x">
+        <meta>
+            <title lang="fr">Image slider webserie</title>
+        </meta>
+
+        <scale x="800" />
+    </format>
 
     <!--
     Render an image from the media_selection in a specific format the following way:

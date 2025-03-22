@@ -1,0 +1,240 @@
+<?xml version="1.0" ?>
+<template xmlns="http://schemas.sulu.io/template/template"
+          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+          xmlns:xi="http://www.w3.org/2001/XInclude"
+          xsi:schemaLocation="http://schemas.sulu.io/template/template http://schemas.sulu.io/template/template-1.0.xsd">
+
+    <key>blogpost</key>
+
+    <view>pages/blog/article</view>
+    <controller>Sulu\Bundle\WebsiteBundle\Controller\DefaultController::indexAction</controller>
+    <cacheLifetime>86400</cacheLifetime>
+
+    <meta>
+        <title lang="en">Article</title>
+    </meta>
+
+    <properties>
+        <section name="non-content">
+            <meta>
+                <title lang="en">Meta-données</title>
+            </meta>
+            <properties>
+                <property name="title" type="text_line" mandatory="true">
+                    <meta>
+                        <title lang="en">Titre fil d'Ariane</title>
+                    </meta>
+                </property>
+                <property name="url" type="resource_locator" mandatory="true">
+                    <meta>
+                        <title lang="en">Url</title>
+                    </meta>
+                    <tag name="sulu.rlp"/>
+                </property>
+
+                <property name="category" type="single_category_selection" mandatory="false">
+                    <meta>
+                        <title lang="en">Catégorie</title>
+                    </meta>
+                </property>
+                <property name="tags" type="tag_selection">
+                    <meta>
+                        <title lang="en">Tags</title>
+                    </meta>
+                </property>
+                <property name="publishedAt" type="date" mandatory="true">
+                    <meta>
+                        <title lang="en">Publié le</title>
+                    </meta>
+                </property>
+                <property name="date_update" type="checkbox">
+                    <meta>
+                        <title lang="en">Affichage de la date de mise à jour</title>
+                    </meta>
+                    <params>
+                        <param name="type" value="toggler"/>
+                        <param name="default_value" value="true"/>
+                    </params>
+                </property>
+                <property name="preview_teaser" type="text_area" mandatory="true">
+                    <meta>
+                        <title lang="en">Texte teaser</title>
+                    </meta>
+                </property>
+
+            </properties>
+        </section>
+        <section name="header">
+            <meta>
+                <title lang="en">Entête</title>
+            </meta>
+            <properties>
+                <property name="title_on_index" type="text_editor" mandatory="true">
+                    <meta>
+                        <title lang="en">Titre</title>
+                    </meta>
+                </property>
+                <property name="title_different_on_index" type="checkbox">
+                    <meta>
+                        <title lang="en">Titre différent sur l'accueil</title>
+                    </meta>
+                    <params>
+                        <param name="type" value="toggler"/>
+                        <param name="default_value" value="false"/>
+                    </params>
+                </property>
+                <property name="title_on_blog_page" type="text_editor" visibleCondition="title_different_on_index == true">
+                    <meta>
+                        <title lang="en">Titre sur la page article</title>
+                    </meta>
+                </property>
+                <property name="readTime" type="number" mandatory="true">
+                    <meta>
+                        <title lang="en">Temps de lecture (en minutes)</title>
+                    </meta>
+                </property>
+                <property name="image" type="single_media_selection" mandatory="false" colspan="6">
+                    <meta>
+                        <title lang="en">Image</title>
+                    </meta>
+                    <params>
+                        <param name="types" value="image"/>
+                    </params>
+                </property>
+                <property name="teaser" type="text_editor">
+                    <meta>
+                        <title lang="en">Intro</title>
+                    </meta>
+                </property>
+            </properties>
+        </section>
+        <section name="content">
+            <meta>
+                <title lang="en">Contenu</title>
+            </meta>
+            <properties>
+                <block name="part" default-type="text">
+                    <meta>
+                        <title lang="en">Paragraphe</title>
+                    </meta>
+                    <types>
+                        <type name="text">
+                            <meta>
+                                <title lang="en">Texte</title>
+                            </meta>
+                            <properties>
+                                <property name="text" type="text_editor">
+                                    <meta>
+                                        <title lang="en">Texte</title>
+                                    </meta>
+                                </property>
+                            </properties>
+                        </type>
+
+                        <type name="picture_in_content">
+                            <meta>
+                                <title lang="en">Image</title>
+                            </meta>
+                            <properties>
+                                <property name="image" type="single_media_selection">
+                                    <meta>
+                                        <title lang="en">Image</title>
+                                    </meta>
+                                    <params>
+                                        <param name="types" value="image"/>
+                                        <param name="displayOptions" type="collection">
+                                            <param name="leftTop" value="true"/>
+                                            <param name="top" value="true"/>
+                                            <param name="rightTop" value="true"/>
+                                            <param name="left" value="true"/>
+                                            <param name="middle" value="false"/>
+                                            <param name="right" value="true"/>
+                                            <param name="leftBottom" value="true"/>
+                                            <param name="bottom" value="true"/>
+                                            <param name="rightBottom" value="true"/>
+                                        </param>
+                                        <param name="defaultDisplayOption" value="left"/>
+                                    </params>
+                                </property>
+                            </properties>
+                        </type>
+                        <type name="code_snippet">
+                            <meta>
+                                    <title lang="en">Code snippet</title>
+                            </meta>
+                            <properties>
+                                <property name="snippet" type="text_area">
+                                    <meta>
+                                        <title lang="en">snippet</title>
+                                    </meta>
+                                </property>
+                            </properties>
+                        </type>
+                        <type name="presentation">
+                            <meta>
+                                <title lang="en">Presentation auteur</title>
+                            </meta>
+                            <properties>
+                                <property name="nom" type="text_editor">
+                                    <meta>
+                                        <title lang="en">Nom</title>
+                                    </meta>
+                                </property>
+                                <property name="image" type="single_media_selection">
+                                    <meta>
+                                        <title lang="en">Image</title>
+                                    </meta>
+                                    <params>
+                                        <param name="types" value="image"/>
+                                    </params>
+                                </property>
+                                <property name="presentation" type="text_editor">
+                                    <meta>
+                                        <title lang="en">Présentation</title>
+                                    </meta>
+                                </property>
+                                <property name="details" type="text_editor">
+                                    <meta>
+                                        <title lang="en">Détails</title>
+                                    </meta>
+                                </property>
+                                <property name="citation" type="text_editor">
+                                    <meta>
+                                        <title lang="en">Citation</title>
+                                    </meta>
+                                </property>
+                                <property name="instagram" type="url">
+                                    <meta>
+                                        <title lang="en">Lien instagram</title>
+                                    </meta>
+                                </property>
+                                <property name="twitter" type="url">
+                                    <meta>
+                                        <title lang="en">Lien twitter</title>
+                                    </meta>
+                                </property>
+                                <property name="linkedin" type="url">
+                                    <meta>
+                                        <title lang="en">Lien linkedin</title>
+                                    </meta>
+                                </property>
+                            </properties>
+                        </type>
+                    </types>
+                </block>
+            </properties>
+        </section>
+        <section name="blogpost_footer">
+            <meta>
+                <title lang="en">Sources</title>
+            </meta>
+            <properties>
+                <property name="sources" type="text_editor">
+                    <meta>
+                        <title lang="en">Sources</title>
+                    </meta>
+                </property>
+            </properties>
+        </section>
+    </properties>
+</template>

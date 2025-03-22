@@ -214,6 +214,7 @@
       <path value="$PROJECT_DIR$/app/vendor/phpdocumentor/reflection-common" />
       <path value="$PROJECT_DIR$/app/vendor/symfony/webpack-encore-bundle" />
       <path value="$PROJECT_DIR$/app/vendor/twig/extra-bundle" />
+      <path value="$PROJECT_DIR$/app/vendor/symfony/ux-twig-component" />
     </include_path>
   </component>
   <component name="PhpProjectSharedConfiguration" php_language_level="8.2" />
