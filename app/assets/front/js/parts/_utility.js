@@ -1,7 +1,11 @@
 import { throttle } from 'throttle-debounce';
+import imagesLoaded from 'imagesloaded';
 import rafl from 'rafl';
 
 const $ = window.jQuery
+
+imagesLoaded.makeJQueryPlugin($);
+
 const tween = window.TweenMax;
 const isMobile = /Android|iPhone|iPad|iPod|BlackBerry|Windows Phone/g.test( navigator.userAgent || navigator.vendor || window.opera );
 

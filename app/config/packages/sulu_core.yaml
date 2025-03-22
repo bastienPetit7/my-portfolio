@@ -1,0 +1,7 @@
+#sulu_core:
+#  content:
+#    structure:
+#      paths:
+#        page_blog:
+#          path: '%kernel.project_dir%/config/templates/pages/blog'
+#          type: page
