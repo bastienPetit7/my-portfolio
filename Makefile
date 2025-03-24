@@ -161,3 +161,11 @@ phpcs: ## Applique les corrections de style PHP-CS-Fixer aux fichiers source dan
 
 githooks: ## Defines git hooks path
 	git config core.hooksPath .githooks
+
+##################
+# Translation
+##################
+
+trans-all: ## Extrait les traductions de l'application dans différentes langues en utilisant le format YAML et les options spécifiées.
+	${DOCKER_EXEC} -u root portfolio_php bash php bin/console translation:extract --format=yaml --force --as-tree=5 en
+	${DOCKER_EXEC} -u root portfolio_php bash php bin/console translation:extract --format=yaml --force --as-tree=5 es
