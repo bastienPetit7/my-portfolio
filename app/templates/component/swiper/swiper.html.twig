@@ -1,0 +1,60 @@
+{% trans_default_domain 'blog_index' %}
+
+
+<div class="swiper swiper-button-style-1 mb-100 show-on-scroll" data-swiper-slides="1" data-swiper-speed="600" data-swiper-loop="true" data-swiper-parallax="true" data-show-duration="500">
+    <div class="swiper-container">
+        <div class="swiper-wrapper">
+
+            {% for blogPost in this.blogPosts %}
+
+                {% set post = sulu_content_load(blogPost.single_teaser_post, {
+                    'title_on_index': 'title_on_index',
+                    'preview_teaser': 'preview_teaser',
+                    'image': 'image',
+                    'readTime': 'readTime',
+                    'publishedAt': 'publishedAt',
+                    'category': 'category',
+                    'blogpost_type': 'blogpost_type',
+                    'date_update': 'date_update'
+                }) %}
+
+                <div class="swiper-slide overflow-hidden">
+                    <div class="card card-overlay card-blog card-image-sm card-hover-zoom text-center text-white">
+                        <div class="card-img" data-swiper-parallax-x="20%" class="swiper-image">
+                            {% if post.content.image != '' %}
+                                <sulu-link href="{{ blogPost.single_teaser_post }}" >
+                                    <img src="{{ post.content.image.thumbnails['800x.webp'] }}" alt="{{ post.content.image.title }}" title="{{ post.content.image.description|default(post.content.image.title) }}">
+                                </sulu-link>
+                            {% endif %}
+                            <div class="background-color" style="background-color: rgba(14, 14, 14, .4);"></div>
+                        </div>
+                        <div class="card-img-overlay">
+                            <div class="row justify-content-center align-items-center h-100">
+                                <div class="col-12 col-lg-7">
+                                    <div class="subtitle mt-lg-3 mb-30 show-on-scroll" data-show-duration="500" data-show-delay="200" data-show-distance="10">{{ post.content.category.name }} - {{ post.content.publishedAt | date("m/d/Y") }} </div>
+                                    <h2 class="card-title h3-sm mb-0 show-on-scroll" data-show-duration="500" data-show-delay="100" data-show-distance="10">{{ post.content.title_on_index | replace({'<p>': '', '</p>': ''}) | raw }}</h2>
+                                    <sulu-link href="{{ blogPost.single_teaser_post }}" >
+                                        <a href="" class="btn btn-clean mt-30 mt-lg-60 mt-xl-130 mb-xl-n30 show-on-scroll" data-show-duration="500" data-show-delay="200" data-show-distance="10">{{ 'read_more' | trans }}<svg class="icon-arrow icon-arrow-right" width='26' height='11' viewBox='0 0 26 11' fill='none' xmlns='http://www.w3.org/2000/svg'>
+                                                <path d='M20.5 1L25 5.5L20.5 10' stroke='currentColor' stroke-width='1.3' stroke-linecap='round' stroke-linejoin='round' />
+                                                <path d='M7 5.5H25' stroke='currentColor' stroke-width='1.3' stroke-linecap='round' stroke-linejoin='round' />
+                                            </svg>
+                                        </a>
+                                    </sulu-link>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+
+        </div>
+    </div>
+    <div class="swiper-button-prev bg-white"><svg width='26' height='11' viewBox='0 0 26 11' fill='none' xmlns='http://www.w3.org/2000/svg'>
+            <path d='M5.5 1L1 5.5L5.5 10' stroke='currentColor' stroke-width='1.3' stroke-linecap='round' stroke-linejoin='round' />
+            <path d='M19 5.5H1' stroke='currentColor' stroke-width='1.3' stroke-linecap='round' stroke-linejoin='round' />
+        </svg></div>
+    <div class="swiper-button-next bg-white"><svg width='26' height='11' viewBox='0 0 26 11' fill='none' xmlns='http://www.w3.org/2000/svg'>
+            <path d='M20.5 1L25 5.5L20.5 10' stroke='currentColor' stroke-width='1.3' stroke-linecap='round' stroke-linejoin='round' />
+            <path d='M7 5.5H25' stroke='currentColor' stroke-width='1.3' stroke-linecap='round' stroke-linejoin='round' />
+        </svg></div>
+</div>

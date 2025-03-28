@@ -1,3 +1,6 @@
+{% trans_default_domain 'navbar' %}
+
+
 <header class="navbar navbar-top navbar-expand">
     <div class="container justify-content-between">
         <a class="navbar-brand" href="index.html">
@@ -34,9 +37,9 @@
                 {% endfor %}
             </ul>
             <ul class="nav navbar-nav navbar-nav-collapse">
-                <li class="nav-item navbar-collapse active">
-                    <a href="#navbarCollapseHome" class="nav-link collapsed" role="button" data-bs-toggle="collapse" aria-expanded="false" aria-controls="navbarCollapseHome">
-                        <span class="nav-link-name">home</span>
+                <li class="nav-item navbar-collapse ">
+                    <a href="{{ sulu_content_path('/') }}" class="nav-link collapsed" >
+                        <span class="nav-link-name">{{ 'home' |trans }}</span>
                         <svg class="collapse-icon" width="7" height="12" viewBox="0 0 7 12" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <path d="M1 11L6 6L1 1" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
                         </svg>
@@ -44,7 +47,7 @@
                 </li>
                 <li class="nav-item navbar-collapse">
                     <a href="#navbarCollapseProjects" class="nav-link collapsed" role="button" data-bs-toggle="collapse" aria-expanded="false" aria-controls="navbarCollapseProjects">
-                        <span class="nav-link-name">projects</span>
+                        <span class="nav-link-name">{{ 'projects' |trans }}</span>
                         <svg class="collapse-icon" width="7" height="12" viewBox="0 0 7 12" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <path d="M1 11L6 6L1 1" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
                         </svg>
@@ -77,8 +80,8 @@
                     </div>
                 </li>
                 <li class="nav-item navbar-collapse">
-                    <a href="#navbarCollapsePages" class="nav-link collapsed" role="button" data-bs-toggle="collapse" aria-expanded="false" aria-controls="navbarCollapsePages">
-                        <span class="nav-link-name">Blog</span>
+                    <a href="{{ sulu_content_path('/blog') }}" class="nav-link collapsed">
+                        <span class="nav-link-name">{{ 'blog' |trans }}</span>
                         <svg class="collapse-icon" width="7" height="12" viewBox="0 0 7 12" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <path d="M1 11L6 6L1 1" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
                         </svg>
@@ -86,7 +89,7 @@
                 </li>
                 <li class="nav-item navbar-collapse">
                     <a href="#navbarCollapseContact" class="nav-link collapsed" role="button" data-bs-toggle="collapse" aria-expanded="false" aria-controls="navbarCollapseContact">
-                        <span class="nav-link-name">contact</span>
+                        <span class="nav-link-name">{{ 'contact' |trans }}</span>
                         <svg class="collapse-icon" width="7" height="12" viewBox="0 0 7 12" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <path d="M1 11L6 6L1 1" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
                         </svg>
@@ -96,8 +99,8 @@
         </div>
         <div class="navbar-footer">
             <ul class="list-group borderless mb-30">
-                <li class="list-group-item">Email: <a href="mailto:hello@themebau.com?subject=Test%20Address%20Email" class="text-decoration-none">hello@themebau.com</a></li>
-                <li class="list-group-item"> Phone: <a href="callto:+1 202-358-0309" class="text-decoration-none">+1 202-358-0309</a>
+                <li class="list-group-item">{{ 'email' |trans|capitalize }}: <a href="mailto:bastien.petit7@gmail.com?subject=Contact%20From%20Portfolio" class="text-decoration-none">bastien.petit7@gmail.com</a></li>
+                <li class="list-group-item"> {{ 'phone' |trans|capitalize }}: <a href="callto:+33 7 81 14 90 57" class="text-decoration-none">+33 7 81 14 90 57</a>
                 </li>
             </ul>
             <ul class="nav nav-gap-sm navbar-nav nav-social align-items-center pt-3">
