@@ -6,7 +6,7 @@
 
     <key>blogpost</key>
 
-    <view>pages/blog/article</view>
+    <view>pages/blog/blog_post</view>
     <controller>Sulu\Bundle\WebsiteBundle\Controller\DefaultController::indexAction</controller>
     <cacheLifetime>86400</cacheLifetime>
 

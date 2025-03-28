@@ -1,0 +1,75 @@
+<?xml version="1.0" ?>
+<template xmlns="http://schemas.sulu.io/template/template"
+          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+          xmlns:xi="http://www.w3.org/2001/XInclude"
+          xsi:schemaLocation="http://schemas.sulu.io/template/template http://schemas.sulu.io/template/template-1.0.xsd">
+
+    <key>blogindex</key>
+
+    <view>pages/blog/blog_index</view>
+    <controller>Sulu\Bundle\WebsiteBundle\Controller\DefaultController::indexAction</controller>
+    <cacheLifetime>86400</cacheLifetime>
+
+    <meta>
+        <title lang="en">Accueil Blog</title>
+    </meta>
+
+    <properties>
+        <section name="non-content">
+            <meta>
+                <title lang="en">Teaser</title>
+            </meta>
+            <properties>
+                <property name="url" type="resource_locator" mandatory="true">
+                    <meta>
+                        <title lang="en">Url</title>
+                    </meta>
+                    <tag name="sulu.rlp"/>
+                </property>
+                <property name="title" type="text_line" mandatory="true">
+                    <meta>
+                        <title lang="en">Titre</title>
+                    </meta>
+                </property>
+            </properties>
+        </section>
+        <section name="content">
+            <meta>
+                <title lang="en">Contenu</title>
+            </meta>
+            <properties>
+                <block name="teaser_posts">
+                    <meta>
+                        <title lang="en">Teaser article</title>
+                    </meta>
+                    <types>
+                        <type name="page">
+                            <meta>
+                                <title lang="en">Page</title>
+                            </meta>
+                            <properties>
+                                <property name="single_teaser_post" type="single_page_selection" mandatory="false">
+                                    <meta>
+                                        <title lang="en">Teaser article</title>
+                                    </meta>
+                                    <params>
+                                        <param name="properties" type="collection">
+                                            <param name="title" value="title"/>
+                                            <param name="preview_teaser" value="preview_teaser" />
+                                            <param name="image" value="image"/>
+                                            <param name="readTime" value="readTime"/>
+                                            <param name="publishedAt" value="publishedAt"/>
+                                            <param name="categories" value="categories"/>
+                                            <param name="blogpost_type" value="blogpost_type"/>
+                                        </param>
+                                    </params>
+                                </property>
+                            </properties>
+                        </type>
+                    </types>
+                </block>
+            </properties>
+        </section>
+    </properties>
+
+</template>

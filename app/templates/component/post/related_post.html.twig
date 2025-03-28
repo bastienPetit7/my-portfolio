@@ -1,9 +1,9 @@
 {% trans_default_domain 'blog_post' %}
 
-<h2 class="text-center mt-130 pb-30 mb-60">{{ 'relatd_post' | trans | capitalize }}</h2>
+<h2 class="text-center mt-130 pb-30 mb-60">{{ 'related_post' | trans | capitalize }}</h2>
 
 <div class="row gh-1 gv-1 mb-n8">
-    {% for post in this.pages %}
+    {% for post in this.blogPosts %}
         {% if post.publishedState == true %}
             <div class="col-12 col-md-6 col-lg-4 show-on-scroll" data-show-duration="600" data-show-distance="20" data-show-delay="50">
                 <a class="card card-blog card-vertical" href="{{ sulu_content_path(post.url) }}">
